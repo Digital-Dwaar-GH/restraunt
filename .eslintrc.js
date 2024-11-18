@@ -11,14 +11,15 @@ module.exports = {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
   },
+  parser: '@babel/eslint-parser', // Replace babel-eslint with @babel/eslint-parser
   parserOptions: {
+    requireConfigFile: false, // Necessary for @babel/eslint-parser if no Babel config exists
     ecmaFeatures: {
       jsx: true,
     },
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  parser: 'babel-eslint',
   plugins: [
     'react',
   ],
@@ -29,7 +30,7 @@ module.exports = {
     'react/state-in-constructor': 0,
     'import/prefer-default-export': 0,
     'max-len': [
-      2,
+      'error',
       550,
     ],
     'no-multiple-empty-lines': [
